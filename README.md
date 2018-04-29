@@ -19,7 +19,7 @@ Self-Driving Car Engineer Nanodegree Program
   * Run either `./install-mac.sh` or `./install-ubuntu.sh`.
   * If you install from source, checkout to commit `e94b6e1`, i.e.
     ```
-    git clone https://github.com/uWebSockets/uWebSockets 
+    git clone https://github.com/uWebSockets/uWebSockets
     cd uWebSockets
     git checkout e94b6e1
     ```
@@ -33,5 +33,15 @@ There's an experimental patch for windows in this [PR](https://github.com/udacit
 1. Clone this repo.
 2. Make a build directory: `mkdir build && cd build`
 3. Compile: `cmake .. && make`
-4. Run it: `./pid`. 
+4. Run it: `./pid`.
 
+## Reflection
+
+Describe the effect each of the P, I, D components had in your implementation.
+
+The "P" component or "proportional" component tries to steer the car to the center line. It has the most direct visible influence on vehicle behaviour. The greater the distance between the vehicle and the centre of the road, the greater the steering angle to the centre line.
+
+The "I" component or the "integral component" acts on the manipulated variable by integrating the control deviation over time.
+In our case, it prevents the car from driving on one side of the lane all the time by steering the car towards the middle.
+
+The "D" component is a "differentiator" used in conjunction with "P" and/or "I". It does not react to the level of the control deviation but only to the rate of change. In our case, it helps to counteract the overshooting of the centerline by smoothing the approach to the centerline.
