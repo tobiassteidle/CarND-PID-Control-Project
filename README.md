@@ -37,7 +37,7 @@ There's an experimental patch for windows in this [PR](https://github.com/udacit
 
 ## Reflection
 
-Describe the effect each of the P, I, D components had in your implementation.
+#### Describe the effect each of the P, I, D components had in your implementation.
 
 The "P" component or "proportional" component tries to steer the car to the center line. It has the most direct visible influence on vehicle behaviour. The greater the distance between the vehicle and the centre of the road, the greater the steering angle to the centre line.
 
@@ -45,3 +45,11 @@ The "I" component or the "integral component" acts on the manipulated variable b
 In our case, it prevents the car from driving on one side of the lane all the time by steering the car towards the middle.
 
 The "D" component is a "differentiator" used in conjunction with "P" and/or "I". It does not react to the level of the control deviation but only to the rate of change. In our case, it helps to counteract the overshooting of the centerline by smoothing the approach to the centerline.
+
+#### Describe how the final hyperparameters were chosen.
+
+First I tried to determine the parameters via twiddle and then adjusted the parameters manually via trial and error.
+First I modified the P-value so that the vehicle follows the track. I corrected the overshoot as much as possible to adjust the D-value. The adjustment of the I-value did not lead to a good result, therefore it was left close to 0.
+
+## Video
+[![PID Control](http://img.youtube.com/vi/fthMtpBNCV0/0.jpg)](http://www.youtube.com/watch?v=fthMtpBNCV0 "PID Control")
